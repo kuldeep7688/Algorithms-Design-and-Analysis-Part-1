@@ -69,8 +69,8 @@ def count_comparisons_with_quicksort_final_element_as_pivot(array, start_idx, en
         (array[start_idx], array[pivot_separating_boundary - 1]) = (array[pivot_separating_boundary - 1], array[start_idx])
 
         # call recursions
-        left_partition, left_comparisons = count_comparisons_with_quicksort_first_element_as_pivot(array, start_idx, pivot_separating_boundary - 2)
-        right_partition, right_comparisons = count_comparisons_with_quicksort_first_element_as_pivot(array, pivot_separating_boundary, end_idx)
+        left_partition, left_comparisons = count_comparisons_with_quicksort_final_element_as_pivot(array, start_idx, pivot_separating_boundary - 2)
+        right_partition, right_comparisons = count_comparisons_with_quicksort_final_element_as_pivot(array, pivot_separating_boundary, end_idx)
 
         return array, comparisons + left_comparisons + right_comparisons
 
@@ -82,7 +82,7 @@ def count_comparisons_with_quicksort_median_element_as_pivot(array, start_idx, e
         return array, 0
     else:
         # do the partitioning
-        middle_element = math.floor((end_idx - start_idx) / 2.0)
+        middle_element = start_idx + math.floor((end_idx - start_idx) / 2.0)
         candidate_pivot_values = [(start_idx, array[start_idx]), (middle_element, array[middle_element]), (end_idx, array[end_idx])]
         sorted_candidates = sorted(candidate_pivot_values, key=lambda x: x[1])
 
