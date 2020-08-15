@@ -2,7 +2,7 @@ import time
 import random
 
 
-def quicksort_with_first_element_as_pivot(array, start_idx, end_idx): # end_idx is included
+def quicksort_with_random_element_as_pivot(array, start_idx, end_idx): # end_idx is included
     """
     Implementation of Quicksort with taking first element as the pivot always.
     Args:
@@ -38,8 +38,8 @@ def quicksort_with_first_element_as_pivot(array, start_idx, end_idx): # end_idx 
         (array[start_idx], array[pivot_separating_boundary - 1]) = (array[pivot_separating_boundary - 1], array[start_idx])
 
         # call recursions
-        left_partition = quicksort_with_first_element_as_pivot(array, start_idx, pivot_separating_boundary - 2)
-        right_partition = quicksort_with_first_element_as_pivot(array, pivot_separating_boundary, end_idx)
+        left_partition = quicksort_with_random_element_as_pivot(array, start_idx, pivot_separating_boundary - 2)
+        right_partition = quicksort_with_random_element_as_pivot(array, pivot_separating_boundary, end_idx)
 
         return array
 
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     print("Unsorted array : \n")
     print(unsorted_array)
     start_time = time.time()
-    sorted_array = quicksort_with_first_element_as_pivot(unsorted_array, 0, len(unsorted_array) - 1)
+    sorted_array = quicksort_with_random_element_as_pivot(unsorted_array, 0, len(unsorted_array) - 1)
     end_time = time.time()
     print("Sorted array : \n")
     print(sorted_array)
